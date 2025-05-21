@@ -1,11 +1,11 @@
 import React from 'react';
 
-const AddPlant = () => {
+const AllPlant = () => {
     return (
         <div>
-            add plant
+            All Plant
         </div>
     );
 };
 
-export default AddPlant;
+export default AllPlant;

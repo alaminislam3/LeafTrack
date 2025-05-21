@@ -5,12 +5,25 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router";
 import MainLayout from "./Layout/MainLayout.jsx";
 import Home from "./Page/Home.jsx";
+import AllPlant from "./Page/AllPlant.jsx";
+import AddPlant from "./Page/AddPlant.jsx";
+import MyPlant from "./Page/MyPlant.jsx";
+import Login from "./Page/Login.jsx";
+import Registration from "./Page/Registration.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     Component: MainLayout,
-    children: [{ index: true, Component: Home }],
+    children: [
+      { index: true, Component: Home },
+      {path: '/allplant' , Component: AllPlant},
+      {path: '/addplant' , Component: AddPlant},
+      {path: '/myplant' , Component: MyPlant},
+      {path: '/login' , Component: Login},
+      {path: '/registration' , Component: Registration},
+    
+    ],
   },
 ]);
 
