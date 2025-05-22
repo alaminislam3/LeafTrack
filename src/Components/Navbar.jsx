@@ -1,7 +1,9 @@
-import React from "react";
-import {  NavLink } from 'react-router'; 
+import React, { use } from "react";
+import {  Link, NavLink } from 'react-router'; 
+import { Authcontext } from "../Layout/Context/Authcontext";
 
 const Navbar = () => {
+  const {user,logout}=use(Authcontext)
   const links = (
     <>
       <NavLink
@@ -49,6 +51,12 @@ const Navbar = () => {
       </NavLink>
     </>
   );
+  const handleLogout =()=> {
+    //  console.log("user logout done");
+      return logout()
+   }
+
+
 
   return (
     <div className="w-full shadow bg-gradient-to-r from-green-100 to-lime-200">
@@ -61,13 +69,32 @@ const Navbar = () => {
         <div className="hidden md:flex gap-6">{links}</div>
 
         {/* Right Side - Auth Buttons */}
-        <div className="flex gap-2 items-center">
-          <NavLink to="/login" className="text-xl btn btn-sm bg-green-200 hover:bg-green-300">
+        <div className="dropdown dropdown-end flex">
+          {user ? <> <div
+            tabIndex={0}
+            role="button"
+            className="btn btn-ghost btn-circle avatar"
+          >
+            <div className="w-10 rounded-full">
+              <img
+                alt="Your picture"
+                referrerPolicy="no-referrer"
+                src={user?.photoURL}
+              />
+            </div>
+           
+          </div>
+            <div className="ml-2">
+            <button onClick={handleLogout} className="btn">Logout</button>
+            </div>
+           </>: <> <NavLink to={"/login"} className="btn bg-blue-200">
             Login
           </NavLink>
-          <NavLink to="/registration" className="text-xl btn btn-sm bg-green-200 hover:bg-green-300">
+          <NavLink to={"/registration"} className="btn bg-blue-200">
             Registration
-          </NavLink>
+          </NavLink> </>}
+          {/* photo cart type */}
+          
         </div>
 
         {/* Mobile Dropdown Menu */}

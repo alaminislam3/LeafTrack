@@ -4,7 +4,7 @@ import { Authcontext } from "../Layout/Context/Authcontext";
 import Swal from "sweetalert2";  
 
 const Login = () => {
-  const { loginUser } = use(Authcontext);
+  const { loginUser,googleSing } = use(Authcontext);
   const navigate = useNavigate(); 
 
   const handleLogin = (e) => {
@@ -32,6 +32,31 @@ const Login = () => {
         });
       });
   };
+
+  const handleGoogle = () => {
+    googleSing()
+      .then((result) => {
+        
+        Swal.fire({
+          icon: "success",
+          title: "Login Successful!",
+          text: "Welcome with Google!",
+          timer: 1000,
+        });
+  
+        
+        navigate("/");
+      })
+      .catch((error) => {
+        
+        Swal.fire({
+          icon: "error",
+          title: "Google Login Failed",
+          text: error.message || "Something went wrong!",
+        });
+      });
+  };
+  
 
   return (
     <div className="card bg-base-100 mx-auto mt-10 w-full max-w-sm shrink-0 shadow-2xl">
@@ -62,7 +87,7 @@ const Login = () => {
           </button>
         </form>
 
-        <button className="btn bg-white text-black border-[#e5e5e5] mt-2">
+        <button onClick={handleGoogle} className="btn bg-white text-black border-[#e5e5e5] mt-2">
           {/* Google Login Button - just design placeholder */}
           <svg
             aria-label="Google logo"

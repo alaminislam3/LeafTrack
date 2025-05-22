@@ -1,6 +1,7 @@
 import { use, useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { Authcontext } from "../Layout/Context/Authcontext";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const {createUser}=use(Authcontext)
@@ -11,10 +12,17 @@ const Register = () => {
     const name = e.target.name.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log(name, email, password);
+    const photo = e.target.photo.value;
+    console.log(name, email, password,photo);
 
      createUser(email,password)
      .then(res=> {
+       Swal.fire({
+                icon: "success",
+                title: "Registration Successful!",
+                text: "Welcome back!",
+                timer: 1300
+              })
       navigate("/")
        setError("");
       console.log(res.user)})
@@ -46,6 +54,13 @@ const Register = () => {
             name="email"
             className="input"
             placeholder="Email"
+          />
+          <label className="label">Photo</label>
+          <input
+            type="text"
+            name="photo"
+            className="input"
+            placeholder="Photo URL"
           />
           <label className="label">Password</label>
           <input
