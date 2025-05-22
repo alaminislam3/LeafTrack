@@ -2,6 +2,7 @@ import React from "react";
 import firstImg from "../assets/first.jpg";
 import secondImg from "../assets/second.jpg";
 import thirdImg from "../assets/trird.jpg";
+
 const Swiper = () => {
   return (
     <div className="carousel w-full relative">
@@ -17,7 +18,7 @@ const Swiper = () => {
              text-white px-6 py-3 rounded-md text-lg font-semibold max-w-md text-center
              grid place-items-centere"
         >
-          Green is not just a color, it’s a lifestyle.
+         Discover Your Green Thumb: Essential Plant Care Tips for Thriving Indoor Gardens.
         </div>
         <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
           <a href="#slide3" className="btn btn-circle">

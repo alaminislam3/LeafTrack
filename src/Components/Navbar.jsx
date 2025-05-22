@@ -4,7 +4,7 @@ import { Authcontext } from "../Layout/Context/Authcontext";
 
 const Navbar = () => {
   const { user, logout } = use(Authcontext);
-  console.log(user);
+  // console.log(user);
   const links = (
     <>
       <NavLink
@@ -58,8 +58,8 @@ const Navbar = () => {
   };
 
   return (
-    <div className="w-full shadow bg-gradient-to-r from-green-100 to-lime-200">
-      <div className="navbar container mx-auto flex justify-between items-center py-3 px-4">
+    <div className="w-full sticky top-0 z-50  shadow bg-gradient-to-r from-green-100 to-lime-200">
+      <div className="navbar  container mx-auto flex justify-between items-center py-3 px-4">
         {/* Logo Section */}
         <div className="text-2xl font-bold text-green-700">🍃 LeafTrack</div>
 
@@ -91,10 +91,16 @@ const Navbar = () => {
             </div>
           ) : (
             <>
-              <NavLink to="/login" className="btn bg-gradient-to-l from-lime-200 to-transparent text-emerald-900 font-bold">
+              <NavLink
+                to="/login"
+                className="btn bg-gradient-to-l from-lime-200 to-transparent text-emerald-900 font-bold"
+              >
                 Login
               </NavLink>
-              <NavLink to="/registration" className="btn bg-gradient-to-l from-lime-200 to-transparent text-emerald-900 font-bold">
+              <NavLink
+                to="/registration"
+                className="btn bg-gradient-to-l from-lime-200 to-transparent text-emerald-900 font-bold"
+              >
                 Registration
               </NavLink>
             </>
