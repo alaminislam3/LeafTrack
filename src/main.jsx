@@ -10,6 +10,7 @@ import AddPlant from "./Page/AddPlant.jsx";
 import MyPlant from "./Page/MyPlant.jsx";
 import Login from "./Page/Login.jsx";
 import Registration from "./Page/Registration.jsx";
+import AuthProvider from "./Layout/Context/AuthProvider.jsx";
 
 const router = createBrowserRouter([
   {
@@ -17,18 +18,19 @@ const router = createBrowserRouter([
     Component: MainLayout,
     children: [
       { index: true, Component: Home },
-      {path: '/allplant' , Component: AllPlant},
-      {path: '/addplant' , Component: AddPlant},
-      {path: '/myplant' , Component: MyPlant},
-      {path: '/login' , Component: Login},
-      {path: '/registration' , Component: Registration},
-    
+      { path: "/allplant", Component: AllPlant },
+      { path: "/addplant", Component: AddPlant },
+      { path: "/myplant", Component: MyPlant },
+      { path: "/login", Component: Login },
+      { path: "/registration", Component: Registration },
     ],
   },
 ]);
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </StrictMode>
 );

@@ -1,12 +1,31 @@
-import { Link } from "react-router";
+import { use, useState } from "react";
+import { Link, useNavigate } from "react-router";
+import { Authcontext } from "../Layout/Context/Authcontext";
 
 const Register = () => {
+  const {createUser}=use(Authcontext)
+  const [error,setError]=useState("")
+  const navigate =useNavigate()
   const handlerSubmit = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
     console.log(name, email, password);
+
+     createUser(email,password)
+     .then(res=> {
+      navigate("/")
+       setError("");
+      console.log(res.user)})
+     .catch(error => {console.log(error)})
+     // validate password
+     const passwordValidate = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+     if (!passwordValidate.test(password)) {
+       setError(
+         "Password must have at least 1 uppercase letter, 1 lowercase letter, and be at least 6 characters long."
+       );
+     }
   };
 
   return (
@@ -44,6 +63,7 @@ const Register = () => {
             Login
           </Link>{" "}
         </p>
+        <span className="text-red-400"> {error }</span>
       </div>
     </div>
   );
