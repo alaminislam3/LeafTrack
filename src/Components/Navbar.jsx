@@ -91,10 +91,10 @@ const Navbar = () => {
             </div>
           ) : (
             <>
-              <NavLink to="/login" className="btn bg-blue-200">
+              <NavLink to="/login" className="btn bg-gradient-to-l from-lime-200 to-transparent text-emerald-900 font-bold">
                 Login
               </NavLink>
-              <NavLink to="/registration" className="btn bg-blue-200">
+              <NavLink to="/registration" className="btn bg-gradient-to-l from-lime-200 to-transparent text-emerald-900 font-bold">
                 Registration
               </NavLink>
             </>

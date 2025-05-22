@@ -11,6 +11,7 @@ import MyPlant from "./Page/MyPlant.jsx";
 import Login from "./Page/Login.jsx";
 import Registration from "./Page/Registration.jsx";
 import AuthProvider from "./Layout/Context/AuthProvider.jsx";
+import Error from "./Page/Error.jsx";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,7 @@ const router = createBrowserRouter([
       { path: "/myplant", Component: MyPlant },
       { path: "/login", Component: Login },
       { path: "/registration", Component: Registration },
+      {path: '*' , Component:Error}
     ],
   },
 ]);

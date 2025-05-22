@@ -1,9 +1,10 @@
 import React from 'react';
+import Swiper from '../Components/Swiper';
 
 const Home = () => {
     return (
         <div>
-            THis is home
+            <Swiper></Swiper>
         </div>
     );
 };
