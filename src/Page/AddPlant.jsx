@@ -43,7 +43,7 @@ const AddPlant = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto p-6 bg-base-100 rounded-xl shadow-md">
+    <div className="max-w-3xl bg-gradient-to-r from-green-100 to-lime-200 md:mt-10 mx-auto p-6 bg-base-100 rounded-xl shadow-md">
       <h2 className="text-2xl font-bold mb-6 text-center">
         🌱 Add a New Plant
       </h2>

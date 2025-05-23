@@ -4,10 +4,10 @@ import AllPlantTable from './AllPlantTable';
 
 const AllPlant = () => {
     const { plants } = useContext(Authcontext);
-    console.log(plants);
+    // console.log(plants);
 
     return (
-        <div className="max-w-4xl mx-auto p-10 md:my-15 bg-green-200 ">
+        <div className="max-w-4xl mx-auto p-10 md:my-15 bg-gradient-to-r from-green-100 to-lime-200 ">
             <h2 className="text-2xl font-bold mb-4">🌿 All Plants List</h2>
 
             <div className="overflow-x-auto">

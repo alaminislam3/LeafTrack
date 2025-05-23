@@ -12,6 +12,7 @@ import Login from "./Page/Login.jsx";
 import Registration from "./Page/Registration.jsx";
 import AuthProvider from "./Layout/Context/AuthProvider.jsx";
 import Error from "./Page/Error.jsx";
+import ViewDetails from "./Page/ViewDetails.jsx";
 
 const router = createBrowserRouter([
   {
@@ -24,7 +25,11 @@ const router = createBrowserRouter([
       { path: "/myplant", Component: MyPlant },
       { path: "/login", Component: Login },
       { path: "/registration", Component: Registration },
-      {path: '*' , Component:Error}
+      {path: '*' , Component:Error},
+      {path: '/allplant/:id',
+      loader: ({params})=> fetch(`http://localhost:3000/addplant/${params.id}`)  ,
+      Component: ViewDetails}
+
     ],
   },
 ]);
