@@ -1,5 +1,6 @@
 import React, { use } from "react";
 import { Authcontext } from "../Layout/Context/Authcontext";
+import Swal from "sweetalert2";
 
 const AddPlant = () => {
   const { user } = use(Authcontext);
@@ -19,6 +20,23 @@ const AddPlant = () => {
       body: JSON.stringify(updateForm),
     })
       .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          Swal.fire({
+            icon: "success",
+            title: "Added Plant Successful!",
+
+            timer: 1000,
+          });
+        } else {
+          Swal.fire({
+            icon: "Error",
+            title: "OPPS Something went wrong!",
+
+            timer: 1000,
+          });
+        }
+      })
       .catch((error) => {
         console.log(error);
       });
@@ -30,7 +48,6 @@ const AddPlant = () => {
         🌱 Add a New Plant
       </h2>
       <form onSubmit={handleSubmit} className="space-y-4">
-       
         <input
           type="text"
           name="image"
