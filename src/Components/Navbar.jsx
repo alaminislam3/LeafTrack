@@ -58,8 +58,8 @@ const Navbar = () => {
   };
 
   return (
-    <div className="w-full sticky top-0 z-50  shadow bg-gradient-to-r from-green-100 to-lime-200">
-      <div className="navbar  container mx-auto flex justify-between items-center py-3 px-4">
+    <div className="w-full   shadow bg-gradient-to-r from-green-100 to-lime-200">
+      <div className="navbar   container mx-auto flex justify-between items-center py-3 px-4">
         {/* Logo Section */}
         <div className="text-2xl font-bold text-green-700">🍃 LeafTrack</div>
 

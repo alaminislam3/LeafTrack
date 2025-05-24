@@ -1,24 +1,32 @@
 // src/Pages/MyPlants.jsx
 
-import React, { useContext, useEffect, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import { Authcontext } from "../Layout/Context/Authcontext";
 import { Link } from "react-router";
 import Swal from "sweetalert2";
+import Loading from "../Components/Loading";
 
 const MyPlants = () => {
-  const { user } = useContext(Authcontext);
+  const { user  } = use(Authcontext);
   const [plants, setPlants] = useState([]);
+  const [loading, setLoading] = useState(true); 
 //   http://localhost:3000/myplants/tumpa@g.com
 
 
   
   useEffect(() => {
+     setLoading(true)
     fetch(`http://localhost:3000/myplants/${user?.email}`)
       .then(res => res.json())
-      .then(data => setPlants(data));
+      .then(data => {
+        setPlants(data)
+        setLoading(false)  
+      });
   }, [user?.email]);
 
-  
+  if(loading){
+     return <Loading> </Loading>
+  }
  
 
 const handleDelete = (id) => {

@@ -2,6 +2,7 @@ import React, { use } from "react";
 import { Authcontext } from "../Layout/Context/Authcontext";
 import Swal from "sweetalert2";
 
+
 const AddPlant = () => {
   const { user } = use(Authcontext);
   // console.log(user);
@@ -41,6 +42,7 @@ const AddPlant = () => {
         console.log(error);
       });
   };
+  
 
   return (
     <div className="max-w-3xl bg-gradient-to-r from-green-100 to-lime-200 md:mt-10 mx-auto p-6 bg-base-100 rounded-xl shadow-md">

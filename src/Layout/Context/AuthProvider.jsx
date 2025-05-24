@@ -72,7 +72,8 @@ const AuthProvider = ({children}) => {
         logout,
         updateUser,
         setUser,
-        plants
+        plants,
+        setLoading
     }
     return (
         <Authcontext value={userInfo}> 
