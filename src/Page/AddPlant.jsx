@@ -2,7 +2,6 @@ import React, { use } from "react";
 import { Authcontext } from "../Layout/Context/Authcontext";
 import Swal from "sweetalert2";
 
-
 const AddPlant = () => {
   const { user } = use(Authcontext);
   // console.log(user);
@@ -11,9 +10,9 @@ const AddPlant = () => {
     const form = e.target;
     const formData = new FormData(form);
     const updateForm = Object.fromEntries(formData.entries());
-    console.log(updateForm);
+    // console.log(updateForm);
     //  send data to db
-    fetch("http://localhost:3000/addplant", {
+    fetch("https://leaf-track-server.vercel.app/addplant", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -42,7 +41,6 @@ const AddPlant = () => {
         console.log(error);
       });
   };
-  
 
   return (
     <div className="max-w-3xl bg-gradient-to-r from-green-100 to-lime-200 md:mt-10 mx-auto p-6 bg-base-100 rounded-xl shadow-md">

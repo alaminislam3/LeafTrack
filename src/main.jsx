@@ -17,7 +17,6 @@ import Loading from "./Components/Loading.jsx";
 import Updatepage from "./Page/Updatepage.jsx";
 import PrivateRoute from "./Components/PrivateRoute.jsx";
 
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -26,18 +25,40 @@ const router = createBrowserRouter([
       { index: true, Component: Home },
       { path: "/allplant", Component: AllPlant },
 
-      { path: "/addplant", element:<PrivateRoute><AddPlant></AddPlant> </PrivateRoute>},
+      {
+        path: "/addplant",
+        element: (
+          <PrivateRoute>
+            <AddPlant></AddPlant>{" "}
+          </PrivateRoute>
+        ),
+      },
 
-      { path: "/myplant",  element: <PrivateRoute> <MyPlant></MyPlant> </PrivateRoute> },
+      {
+        path: "/myplant",
+        element: (
+          <PrivateRoute>
+            {" "}
+            <MyPlant></MyPlant>{" "}
+          </PrivateRoute>
+        ),
+      },
 
       { path: "/login", Component: Login },
-      {path: "/update/:id", Component: Updatepage},
+      { path: "/update/:id", Component: Updatepage },
       { path: "/registration", Component: Registration },
-      {path: '*' , Component:Error},
-      {path: '/allplant/:id',
-      loader: ({params})=> fetch(`http://localhost:3000/addplant/${params.id}`)  ,
-      element:   <PrivateRoute>   <ViewDetails></ViewDetails> </PrivateRoute> }
-
+      { path: "*", Component: Error },
+      {
+        path: "/allplant/:id",
+        loader: ({ params }) =>
+          fetch(`https://leaf-track-server.vercel.app/addplant/${params.id}`),
+        element: (
+          <PrivateRoute>
+            {" "}
+            <ViewDetails></ViewDetails>{" "}
+          </PrivateRoute>
+        ),
+      },
     ],
   },
 ]);

@@ -6,11 +6,11 @@ const Updatepage = () => {
   const { id } = useParams(); // plant ID from route
   const navigate = useNavigate();
   const [plant, setPlant] = useState(null);
-  console.log(plant);
+  // console.log(plant);
 
   // 1. Get existing plant data
   useEffect(() => {
-    fetch(`http://localhost:3000/addplant/${id}`)
+    fetch(`https://leaf-track-server.vercel.app/addplant/${id}`)
       .then((res) => res.json())
       .then((data) => setPlant(data))
       .catch((err) => console.log(err));
@@ -23,7 +23,7 @@ const Updatepage = () => {
     const formData = new FormData(form);
     const updatedPlant = Object.fromEntries(formData.entries());
 
-    fetch(`http://localhost:3000/addplant/${id}`, {
+    fetch(`https://leaf-track-server.vercel.app/addplant/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updatedPlant),
@@ -49,7 +49,9 @@ const Updatepage = () => {
 
   return (
     <div className="max-w-3xl mx-auto p-6 mt-10 bg-green-50 rounded-xl shadow-md">
-      <h2 className="text-2xl font-bold mb-6 text-center">🌿 Update Plant Info</h2>
+      <h2 className="text-2xl font-bold mb-6 text-center">
+        🌿 Update Plant Info
+      </h2>
       <form onSubmit={handleUpdate} className="space-y-4">
         <input
           type="text"
@@ -65,7 +67,11 @@ const Updatepage = () => {
           placeholder="Plant Name"
           className="input input-bordered w-full"
         />
-        <select name="category" defaultValue={plant.category} className="select select-bordered w-full">
+        <select
+          name="category"
+          defaultValue={plant.category}
+          className="select select-bordered w-full"
+        >
           <option value="succulent">Succulent</option>
           <option value="fern">Fern</option>
           <option value="flowering">Flowering</option>
@@ -76,7 +82,11 @@ const Updatepage = () => {
           placeholder="Description"
           className="textarea textarea-bordered w-full"
         ></textarea>
-        <select name="careLevel" defaultValue={plant.careLevel} className="select select-bordered w-full">
+        <select
+          name="careLevel"
+          defaultValue={plant.careLevel}
+          className="select select-bordered w-full"
+        >
           <option value="easy">Easy</option>
           <option value="moderate">Moderate</option>
           <option value="difficult">Difficult</option>

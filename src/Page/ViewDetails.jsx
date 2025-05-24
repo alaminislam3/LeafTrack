@@ -3,7 +3,7 @@ import { useLoaderData } from "react-router";
 
 const ViewDetails = () => {
   const datas = useLoaderData();
-  console.log(datas);
+  // console.log(datas);
   const {image,plantName,category,description,wateringFrequency,healthStatus}= datas
   return (
     <div className="hero">
