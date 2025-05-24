@@ -14,6 +14,8 @@ import AuthProvider from "./Layout/Context/AuthProvider.jsx";
 import Error from "./Page/Error.jsx";
 import ViewDetails from "./Page/ViewDetails.jsx";
 import Loading from "./Components/Loading.jsx";
+import Updatepage from "./Page/Updatepage.jsx";
+
 
 const router = createBrowserRouter([
   {
@@ -23,11 +25,9 @@ const router = createBrowserRouter([
       { index: true, Component: Home },
       { path: "/allplant", Component: AllPlant },
       { path: "/addplant", Component: AddPlant },
-      { path: "/myplant",
-        
-        
-        Component: MyPlant },
+      { path: "/myplant",Component: MyPlant },
       { path: "/login", Component: Login },
+      {path: "/update/:id", Component: Updatepage},
       { path: "/registration", Component: Registration },
       {path: '*' , Component:Error},
       {path: '/allplant/:id',
