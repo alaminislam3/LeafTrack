@@ -13,6 +13,7 @@ import Registration from "./Page/Registration.jsx";
 import AuthProvider from "./Layout/Context/AuthProvider.jsx";
 import Error from "./Page/Error.jsx";
 import ViewDetails from "./Page/ViewDetails.jsx";
+import Loading from "./Components/Loading.jsx";
 
 const router = createBrowserRouter([
   {
@@ -22,7 +23,10 @@ const router = createBrowserRouter([
       { index: true, Component: Home },
       { path: "/allplant", Component: AllPlant },
       { path: "/addplant", Component: AddPlant },
-      { path: "/myplant", Component: MyPlant },
+      { path: "/myplant",
+        
+        
+        Component: MyPlant },
       { path: "/login", Component: Login },
       { path: "/registration", Component: Registration },
       {path: '*' , Component:Error},
