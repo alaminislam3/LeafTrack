@@ -1,12 +1,19 @@
-# React + Vite
+# LeafTrack 🌿
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Live Demo: [https://practice-firebase-auth-9e8cd.web.app](https://practice-firebase-auth-9e8cd.web.app)
 
-Currently, two official plugins are available:
+## Project Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+LeafTrack is a modern web application designed to help plant enthusiasts manage and track their plants with ease. Users can add, update, and delete plants, view all plants in a clean interface, and manage their personal plant collection with secure authentication.
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **User Authentication:** Secure sign-in and sign-up powered by Firebase Authentication.
+- **Add & Manage Plants:** Users can add new plants with details like name, category, watering frequency, and health status.
+- **Personalized Dashboard:** View and manage your own plants in a dedicated “My Plants” section.
+- **Responsive Design:** Fully responsive UI that works seamlessly on mobile devices and desktops.
+- **Real-time Data Handling:** Smooth data fetching and updates with visual loading indicators.
+
+---
+
+Feel free to explore the live version and contribute to make LeafTrack even better!

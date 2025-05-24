@@ -1,13 +1,15 @@
-import React, { useContext } from "react";
+import React, { use} from "react";
 import { Authcontext } from "../Layout/Context/Authcontext";
 import { Link } from "react-router";
 
 const NewPlant = () => {
-  const { plants } = useContext(Authcontext);
+  const { user,plants } = use(Authcontext);
 
-  // Only show the latest 6 plants
-  const latestPlants = plants.slice(-6).reverse();
+  // showing latest 6 
+  const latestPlants = plants.slice(-7).reverse();
+  if(user){
 
+  
   return (
     <div className="max-w-7xl mx-auto px-4 py-10">
       <h2 className="text-3xl font-bold text-green-600 text-center mb-8">
@@ -31,7 +33,7 @@ const NewPlant = () => {
               <h2 className="card-title">{plant.plantName}</h2>
 
               <div className="card-actions justify-end mt-4">
-                <Link to={`/plants/${plant._id}`}>
+                <Link to={`/allplant/${plant._id}`}>
                   <button className="btn btn-primary">View Details</button>
                 </Link>
               </div>
@@ -41,6 +43,6 @@ const NewPlant = () => {
       </div>
     </div>
   );
-};
+};}
 
 export default NewPlant;

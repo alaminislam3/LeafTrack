@@ -4,7 +4,7 @@ import { Authcontext } from "../Layout/Context/Authcontext";
 
 const Navbar = () => {
   const { user, logout } = use(Authcontext);
-  // console.log(user);
+
   const links = (
     <>
       <NavLink
@@ -52,45 +52,60 @@ const Navbar = () => {
       </NavLink>
     </>
   );
+
   const handleLogout = () => {
-    //  console.log("user logout done");
     return logout();
   };
 
   return (
-    <div className="w-full   shadow bg-gradient-to-r from-green-100 to-lime-200">
-      <div className="navbar   container mx-auto flex justify-between items-center py-3 px-4">
-        {/* Logo Section */}
-        <div className="text-2xl font-bold text-green-700">🍃 LeafTrack</div>
+    <div className="w-full shadow bg-gradient-to-r from-green-100 to-lime-200">
+      <div className="navbar container mx-auto flex justify-between items-center py-3 px-4">
+        <div className="flex items-center gap-3 md:gap-6">
+          <div className="dropdown md:hidden">
+            <label tabIndex={0} className="btn btn-sm m-1">
+              ☰
+            </label>
+            <ul
+              tabIndex={0}
+              className="menu menu-sm dropdown-content mt-3 z-[1]  shadow bg-white rounded-box w-20"
+            >
+              {links}
+              {!user && (
+                <div className="mt-2 border-t ">
+                  <NavLink
+                    to="/login"
+                    className="btn btn-sm w-full mb-1 bg-green-200"
+                  >
+                    Login
+                  </NavLink>
+                  <NavLink
+                    to="/registration"
+                    className="btn btn-sm w-full bg-green-300"
+                  >
+                    Registration
+                  </NavLink>
+                </div>
+              )}
+            </ul>
+          </div>
 
-        {/* Nav Links - Hidden on small screens */}
+          <div className="text-2xl font-bold text-green-700">🍃 LeafTrack</div>
+        </div>
+
         <div className="hidden md:flex gap-6">{links}</div>
 
-        {/* Right Side - Auth Buttons */}
-        <div className="dropdown dropdown-end flex">
+        <div className="flex items-center gap-4">
           {user ? (
             <div className="group flex items-center gap-3">
-              {/* Profile Image & Hover Name */}
-              <div className="flex flex-col items-center">
-                <div className="w-10 h-10 rounded-full overflow-hidden">
-                  <img
-                    className="w-full h-full object-cover"
-                    src={user?.photoURL}
-                    alt="User"
-                  />
-                </div>
+              <div className="tooltip tooltip-bottom" data-tip={user?.displayName}>
+                <img src={user?.photoURL} className="w-10 h-10 rounded-full" />
               </div>
-
-              {/* Logout Button */}
-              <button
-                onClick={handleLogout}
-                className="btn  btn-sm btn-outline"
-              >
+              <button onClick={handleLogout} className="btn btn-sm btn-outline">
                 Logout
               </button>
             </div>
           ) : (
-            <>
+            <div className="hidden md:flex gap-2">
               <NavLink
                 to="/login"
                 className="btn bg-gradient-to-l from-lime-200 to-transparent text-emerald-900 font-bold"
@@ -100,41 +115,12 @@ const Navbar = () => {
               <NavLink
                 to="/registration"
                 className="btn bg-gradient-to-l from-lime-200 to-transparent text-emerald-900 font-bold"
-              >
-                Registration
-              </NavLink>
-            </>
-          )}
-
-          {/* photo cart type */}
-        </div>
-
-        {/* Mobile Dropdown Menu */}
-        {/* <div className="dropdown hidden md:hidden">
-          <label tabIndex={0} className="btn btn-sm m-1">
-            ☰
-          </label>
-          <ul
-            tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-white rounded-box w-52"
-          >
-            {links}
-            <div className="mt-2 border-t pt-2">
-              <NavLink
-                to="/login"
-                className=" btn btn-sm w-full mb-1 bg-green-200"
-              >
-                Login
-              </NavLink>
-              <NavLink
-                to="/registration"
-                className=" btn btn-sm w-full bg-green-300"
               >
                 Registration
               </NavLink>
             </div>
-          </ul>
-        </div> */}
+          )}
+        </div>
       </div>
     </div>
   );
