@@ -1,7 +1,7 @@
 import React from "react";
-import firstImg from "../assets/first.jpg";
-import secondImg from "../assets/second.jpg";
-import thirdImg from "../assets/trird.jpg";
+import firstImg from "../assets/first.jpeg";
+import secondImg from "../assets/second.jpeg";
+import thirdImg from "../assets/trird.jpeg";
 
 const Swiper = () => {
   return (

@@ -15,6 +15,7 @@ import Error from "./Page/Error.jsx";
 import ViewDetails from "./Page/ViewDetails.jsx";
 import Loading from "./Components/Loading.jsx";
 import Updatepage from "./Page/Updatepage.jsx";
+import PrivateRoute from "./Components/PrivateRoute.jsx";
 
 
 const router = createBrowserRouter([
@@ -24,15 +25,18 @@ const router = createBrowserRouter([
     children: [
       { index: true, Component: Home },
       { path: "/allplant", Component: AllPlant },
-      { path: "/addplant", Component: AddPlant },
-      { path: "/myplant",Component: MyPlant },
+
+      { path: "/addplant", element:<PrivateRoute><AddPlant></AddPlant> </PrivateRoute>},
+
+      { path: "/myplant",  element: <PrivateRoute> <MyPlant></MyPlant> </PrivateRoute> },
+
       { path: "/login", Component: Login },
       {path: "/update/:id", Component: Updatepage},
       { path: "/registration", Component: Registration },
       {path: '*' , Component:Error},
       {path: '/allplant/:id',
       loader: ({params})=> fetch(`http://localhost:3000/addplant/${params.id}`)  ,
-      Component: ViewDetails}
+      element:   <PrivateRoute>   <ViewDetails></ViewDetails> </PrivateRoute> }
 
     ],
   },
