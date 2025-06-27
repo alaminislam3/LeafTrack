@@ -11,7 +11,7 @@ const NewPlant = () => {
 
   
   return (
-    <div className="max-w-7xl mx-auto px-4 py-10">
+    <div className="max-w-7xl mx-auto px-4 py-10 ">
       <h2 className="text-3xl font-bold text-green-600 text-center mb-8">
         🌿 New Arrival
       </h2>

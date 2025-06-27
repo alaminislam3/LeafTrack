@@ -6,7 +6,7 @@ import { Link } from 'react-router';
 
 const Blogs = () => {
     return (
-        <div className='py-10 dark:bg-gray-100 dark:text-gray-800'>
+        <div className='py-10 max-w-7xl mx-auto  '>
             <h2 className='text-3xl text-green-600 text-center mb-6'>Read Blogs</h2>
             
             <div className='grid grid-cols-1 md:grid-cols-3 gap-8 px-4'>
