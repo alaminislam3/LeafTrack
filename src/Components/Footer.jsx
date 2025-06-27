@@ -17,7 +17,7 @@ const Footer = () => {
         {/* Contact Info */}
         <div>
           <h3 className="text-lg font-semibold mb-2">Contact Us</h3>
-          <p>Email: <a href="mailto:support@leaftrack.com" className="text-blue-600">support@leaftrack.com</a></p>
+          <p>Email: <a href="mailto:support@leaftrack.com" className="">support@leaftrack.com</a></p>
           <p>Phone: +880 1234-567890</p>
           <p>Dhaka, Bangladesh</p>
         </div>

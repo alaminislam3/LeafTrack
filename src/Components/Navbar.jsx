@@ -1,9 +1,9 @@
-import React, { use } from "react";
-import { Link, NavLink } from "react-router";
+import React, { useContext } from "react";
+import { NavLink } from "react-router";
 import { Authcontext } from "../Layout/Context/Authcontext";
 
 const Navbar = () => {
-  const { user, logout } = use(Authcontext);
+  const { user, logout } = useContext(Authcontext);
 
   const links = (
     <>
@@ -54,12 +54,13 @@ const Navbar = () => {
   );
 
   const handleLogout = () => {
-    return logout();
+    logout();
   };
 
   return (
-    <div className="w-full shadow bg-gradient-to-r from-green-100 to-lime-200">
+    <div className="sticky top-0 z-50 bg-gradient-to-r from-green-100 to-lime-200 shadow">
       <div className="navbar container mx-auto flex justify-between items-center py-3 px-4">
+        {/* Left side - Logo & Dropdown */}
         <div className="flex items-center gap-3 md:gap-6">
           <div className="dropdown md:hidden">
             <label tabIndex={0} className="btn btn-sm m-1">
@@ -67,11 +68,11 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1]  shadow bg-white rounded-box w-20"
+              className="menu menu-sm dropdown-content mt-3 z-[1] shadow bg-white rounded-box w-32 space-y-1 p-2"
             >
               {links}
               {!user && (
-                <div className="mt-2 border-t ">
+                <div className="mt-2 border-t pt-2">
                   <NavLink
                     to="/login"
                     className="btn btn-sm w-full mb-1 bg-green-200"
@@ -92,15 +93,27 @@ const Navbar = () => {
           <div className="text-2xl font-bold text-green-700">🍃 LeafTrack</div>
         </div>
 
+        {/* Center - Desktop Menu */}
         <div className="hidden md:flex gap-6">{links}</div>
 
+        {/* Right - User Info or Login/Register */}
         <div className="flex items-center gap-4">
           {user ? (
             <div className="group flex items-center gap-3">
-              <div className="tooltip tooltip-bottom" data-tip={user?.displayName}>
-                <img src={user?.photoURL} className="w-10 h-10 rounded-full" />
+              <div
+                className="tooltip tooltip-bottom"
+                data-tip={user?.displayName}
+              >
+                <img
+                  src={user?.photoURL}
+                  alt="User Avatar"
+                  className="w-10 h-10 rounded-full border-2 border-green-400"
+                />
               </div>
-              <button onClick={handleLogout} className="btn btn-sm btn-outline">
+              <button
+                onClick={handleLogout}
+                className="btn btn-sm btn-outline hover:bg-red-100"
+              >
                 Logout
               </button>
             </div>

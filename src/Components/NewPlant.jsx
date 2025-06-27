@@ -34,7 +34,7 @@ const NewPlant = () => {
 
               <div className="card-actions justify-end mt-4">
                 <Link to={`/allplant/${plant._id}`}>
-                  <button className="btn btn-primary">View Details</button>
+                  <button className="btn bg-gradient-to-l from-lime-200 to-transparent text-emerald-900 font-bold">View Details</button>
                 </Link>
               </div>
             </div>

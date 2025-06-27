@@ -82,7 +82,7 @@ const Login = () => {
           <div>
             <a className="link link-hover">Forgot password?</a>
           </div>
-          <button className="btn btn-neutral mt-4" type="submit">
+          <button className="btn w-full mb-1 bg-gradient-to-l from-lime-200 to-transparent text-emerald-900 font-bold mt-4" type="submit">
             Login
           </button>
         </form>

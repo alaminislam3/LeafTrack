@@ -84,7 +84,7 @@ const Register = () => {
             placeholder="Password"
           />
 
-          <button className="btn btn-neutral  mt-4">Registration</button>
+          <button className="btn  bg-gradient-to-l from-lime-200 to-transparent text-emerald-900 font-bold mt-4">Registration</button>
         </form>
         <p>
           Already have an account ?{" "}
