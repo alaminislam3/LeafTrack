@@ -52,7 +52,7 @@ const MyPlants = () => {
   };
 
   return (
-    <div className="container md:py-40 mx-auto p-4">
+    <div className="container md:py-50 mx-auto p-4">
       <h2 className="text-2xl font-bold mb-4">My Plants</h2>
 
       {plants.length === 0 ? (
